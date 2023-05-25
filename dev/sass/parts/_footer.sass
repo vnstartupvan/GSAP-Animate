@@ -1,0 +1,103 @@
+@charset "utf-8"
+
+/* COMMON FOOTER
+ * -----------------------------------------------*/
+.footer
+  width: 100%
+  background-color: #171d1c
+  color: $color-white
+
+.content-footer
+  padding: 30px 0
+  width: 100%
+  -js-display: flex
+  +display-flex
+  +justify-content(space-between)
+  line-height: 1.7
+  font-size: 14px
+
+  .title-footer
+    font-size: 16px
+    font-weight: bold
+    line-height: 1.5
+
+  .information-right
+    text-align: right
+    margin-right: 65px
+    .address
+      margin-top: 30px
+  .information-left
+    -js-display: flex
+    +display-flex
+    .ie9 &,
+    .ie10 &
+      width: 685px
+    .link-item-footer
+      color: $color-white
+    .list-content
+      margin-right: 30px
+      .item
+        margin-top: 10px
+
+      &.list-content-2col
+        width: 280px
+        -js-display: flex
+        +display-flex
+        +flex-wrap(wrap)
+
+        .item
+          width: 50%
+          &.title-footer
+            width: 100%
+
+      .ie9 &,
+      .ie10 &
+        &:nth-child(2)
+          left: 150px !important
+        &:nth-child(3)
+          left: 310px !important
+        &:nth-child(4)
+          left: 420px !important
+
+
+@media (max-width: $base-sm-break)
+  .content-footer
+    padding: .6rem 0
+    font-size: .22rem
+    +flex-wrap(wrap)
+
+    .title-footer
+      font-size: .26rem
+
+    .information-right
+      width: 100%
+      text-align: left
+      margin-top: .25rem
+      margin-right: 0
+      padding-top: .25rem
+      border-top: .01rem solid $color-white
+      .address
+        margin-top: .3rem
+
+    .information-left
+      display: block
+      .list-content
+        margin-right: 0
+        margin-top: .5rem
+        width: 100%
+        -js-display: flex
+        +display-flex
+        +flex-wrap(wrap)
+        border-top: .01rem solid $color-white
+        &:first-child
+          border-top: 0
+
+        &.list-content-2col
+          width: 100%
+          .item
+            width: 32%
+
+        .item
+          width: 32%
+          &.title-footer
+            width: 100%

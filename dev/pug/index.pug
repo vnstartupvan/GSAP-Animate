@@ -1,0 +1,230 @@
+extends _layouts/default
+
+block vars
+  -title        = 'TOP PAGE'
+  -description  = 'TOP'
+  -keywords     = 'TOP'
+  -bodyClass    = 'page-top'
+  -path         = './'
+
+block container
+  section.section-top-banner
+    h2.caption.item-news.wow.zoomin(data-wow-duration="1.5s") Enjoy freedom land
+  .section-top-news
+    .list-top-news
+      div.item-news.wow.fadeindown.group-select
+        +link('#', '').btn-select.desc
+          span.value-button Mauritius
+          .icon
+        ul.list-select-item.select-item
+          li.item
+            +link('#', 'Mauritius').item-link-category
+          li.item
+            +link('#', 'Mauritius02').item-link-category
+          li.item
+            +link('#', 'Mauritius03').item-link-category
+          li.item
+            +link('#', 'Mauritius04').item-link-category
+
+      div(data-wow-delay=".3s").item-news.wow.fadeindown
+        .desc.date-time
+          input(type="text", value="24 Sept 2016")#datepicker
+          .icon
+      div(data-wow-delay=".6s").item-news.wow.fadeindown
+        .desc.date-time
+          input(type="text", value="10 Oct 2016")#datepicker02
+          .icon
+      div(data-wow-delay=".9s").item-news.wow.fadeindown.group-select
+        +link('#', '').btn-select.desc
+          span.value-button 5 Bedrooms
+          .icon
+        ul.list-select-item.select-item
+          li.item
+            +link('#', '5 Bedrooms').item-link-category
+          li.item
+            +link('#', '4 Bedrooms').item-link-category
+          li.item
+            +link('#', '3 Bedrooms').item-link-category
+          li.item
+            +link('#', '2 Bedrooms').item-link-category
+          li.item
+            +link('#', '1 Bedrooms').item-link-category
+
+      +link('#', '')(data-wow-delay="1.2s").btn-more-news.btn-commom.wow.fadeindown
+
+  section.section-vacation-ideas
+    .wrapper
+      .sec-content.content-vacation-ideas
+        h2.sec-title01.wow.zoomin(data-wow-duration="1.5s")
+          | See latest vacation ideas
+        .list-ideas
+          +link('#', '').item.wow.fadeindown
+            .thumb
+              +img('Beachfront Escapes', 'img/thumb_idea01.png')
+            .btn-see-ideas.wow.zoomin(data-wow-delay=".3s")
+              .wrap-txt-idea
+                .txt-btn.sec-title02 Beachfront Escapes
+          +link('#', '')(data-wow-delay=".3s").item.wow.fadeindown
+            .thumb
+              +img('Group Holidays', 'img/thumb_idea02.png')
+            .btn-see-ideas.wow.zoomin(data-wow-delay=".6s")
+              .wrap-txt-idea
+                .txt-btn.sec-title02 Group Holidays
+          +link('#', '')(data-wow-delay=".6s").item.wow.fadeindown
+            .thumb
+              +img('City Breaks', 'img/thumb_idea03.png')
+            .btn-see-ideas.wow.zoomin(data-wow-delay=".9s")
+              .wrap-txt-idea
+                .txt-btn.sec-title02 City Breaks
+
+  section.section-recent-holiday
+    .wrapper
+      .sec-content.content-recent-holiday
+        h2.sec-title01.wow.zoomin(data-wow-duration="1.5s")
+          | Recent holiday locations
+        .list-booking
+          .item.wow.zoomin(data-wow-duration="1.5s")
+            .list-thumb
+              .thumb-large
+                +img('Thalie 5', path+'img/thalie01.jpg')
+              .thumb-small
+                +img('Thalie 5', path+'img/thalie02.jpg')
+                +img('Thalie 5', path+'img/thalie03.jpg')
+                +img('Thalie 5', path+'img/thalie04.jpg')
+            .desc-booking
+              h3.title-booking.sec-title03 Thalie 5
+              p.desc Thalie 5 is located on the exclusive Belle Riviere estate, which is home to several of Luxury Retreats’ finest villas in Mauritius.
+              ul.list-information.clearfix
+                li.item-information
+                  span.icon
+                    +img('icon bed', 'img/bed.png')
+                  span.number 3
+                li.item-information
+                  span.icon
+                    +img('icon bath', 'img/bath.png')
+                  span.number 5
+                li.item-information
+                  span.icon.tooltip(data-title="Beachfront")
+                    +img('icon beachfront', 'img/beachfront.png')
+                li.item-information
+                  span.icon
+                    +img('icon pool', 'img/pool.png')
+              +link('#', '').btn-booking.btn-commom
+                span.txt-booking Book now
+          .item.wow.zoomin(data-wow-duration="1.5s")
+            .list-thumb
+              .thumb-large
+                +img('Montage Kapalua', path+'img/montage01.jpg')
+              .thumb-small
+                +img('Montage Kapalua', path+'img/montage02.jpg')
+                +img('Montage Kapalua', path+'img/montage03.jpg')
+                +img('Montage Kapalua', path+'img/montage04.jpg')
+            .desc-booking
+              h3.title-booking.sec-title03 Montage Kapalua
+              p.desc Located only a jaunt from Kahului airport, you’ll be greeted by an easy and scenic drive along the West Maui Mountains and crystal
+              ul.list-information.clearfix
+                li.item-information
+                  span.icon
+                    +img('icon bed', 'img/bed.png')
+                  span.number 1
+                li.item-information
+                  span.icon
+                    +img('icon bath', 'img/bath.png')
+                  span.number 1
+                li.item-information
+                  span.icon.tooltip(data-title="Beachfront")
+                    +img('icon beachfront', 'img/beachfront.png')
+                li.item-information
+                  span.icon
+                    +img('icon pool', 'img/pool.png')
+              +link('#', '').btn-booking.btn-commom
+                span.txt-booking Book now
+          .item.wow.zoomin(data-wow-duration="1.5s")
+            .list-thumb
+              .thumb-large
+                +img('Casa Del Agua', path+'img/casa01.jpg')
+              .thumb-small
+                +img('Casa Del Agua', path+'img/casa02.jpg')
+                +img('Casa Del Agua', path+'img/casa03.jpg')
+                +img('Casa Del Agua', path+'img/casa04.jpg')
+            .desc-booking
+              h3.title-booking.sec-title03 Casa Del Agua
+              p.desc After a breakfast catered to your taste and served at your leisure, relax in a hammock under the shade of a palm tree or let the sun perform its golden magic on your skin while you study the waves.
+              ul.list-information.clearfix
+                li.item-information
+                  span.icon
+                    +img('icon bed', 'img/bed.png')
+                  span.number 4
+                li.item-information
+                  span.icon
+                    +img('icon bath', 'img/bath.png')
+                  span.number 4
+                li.item-information
+                  span.icon.tooltip(data-title="Beachfront")
+                    +img('icon beachfront', 'img/beachfront.png')
+                li.item-information
+                  span.icon
+                    +img('icon pool', 'img/pool.png')
+              +link('#', '').btn-booking.btn-commom
+                span.txt-booking Book now
+          .item.wow.zoomin(data-wow-duration="1.5s")
+            .list-thumb
+              .thumb-large
+                +img('Casa Jaguar', path+'img/jaguar01.jpg')
+              .thumb-small
+                +img('Casa Jaguar', path+'img/jaguar02.jpg')
+                +img('Casa Jaguar', path+'img/jaguar03.jpg')
+                +img('Casa Jaguar', path+'img/jaguar04.jpg')
+            .desc-booking
+              h3.title-booking.sec-title03 Casa Jaguar
+              p.desc Sleek and sophisticated like the animal for which it has been named, Casa Jaguar is an immaculate tropical luxury villa located in the Mayan
+              ul.list-information.clearfix
+                li.item-information
+                  span.icon
+                    +img('icon bed', 'img/bed.png')
+                  span.number 4
+                li.item-information
+                  span.icon
+                    +img('icon bath', 'img/bath.png')
+                  span.number 4
+                li.item-information
+                  span.icon
+                    +img('icon pool', 'img/pool.png')
+              +link('#', '').btn-booking.btn-commom
+                span.txt-booking Book now
+
+  section.section-different
+    .wrapper
+      .sec-content.content-different
+        h2.sec-title01.wow.zoomin(data-wow-duration="1.5s")
+          | Why we are different
+        .list-ideas.list-different
+          .item.item-different.wow.zoomin
+            .icon-different
+              +img('Tailor-Made Packages', path+'img/different01.png').icon
+            .title-different.sec-title02 Tailor-Made Packages
+            p.desc
+              | When it comes to delivering the best planned holiday package to you, we strive to exceed your expectations. For us, it has to be spot-on. We do what we do in the ideal way possible.
+          .item.item-different.wow.zoomin(data-wow-duration="1.5s")
+            .icon-different
+              +img('Best Experience', path+'img/different02.png').icon
+            .title-different.sec-title02 Best Experience
+            p.desc
+              | At Purplerain Holidays, we choose to put forth an essence of our own expertise and firsthand experiences into our services and method of planning.
+          .item.item-different.wow.zoomin(data-wow-duration="1.5s")
+            .icon-different
+              +img('Exquisite Service', path+'img/different03.png').icon
+            .title-different.sec-title02 Exquisite Service
+            p.desc
+              | From the moment you make the first call to enquire, our services are geared up. From the time booking, to your stay and well after the trip as well, we will guide you and be at your back and
+
+  section.section-top-contact
+    .wrapper
+      +form('post', '#').send-us-block.wow.fadeindown
+        h2.title-contact.sec-title03 Send us a message
+        .group-input-filed
+          +input-norequire('Your name', 'text').input-control
+          +input-norequire('Email', 'text').input-control
+          +input-norequire('Message', 'text').input-control
+        +button('', 'submit').btn-send-mail.btn-commom
+          span.txt-btn Send

@@ -1,0 +1,445 @@
+@charset "utf-8"
+
+.wow
+  visibility: hidden
+
+/* SECTION BANNER TOP
+ * -----------------------------------------------*/
+.section-top-banner
+  +size(100%, 760px)
+  background: url(../img/banner.jpg) no-repeat center center
+  background-size: cover
+  position: relative
+  display: table
+  .caption
+    color: $color-white
+    font-size: 53px
+    font-weight: bold
+    line-height: 1
+    letter-spacing: 0.05em
+    display: table-cell
+    vertical-align: middle
+    height: 760px
+    text-align: center
+    @extend .text-uppercase
+
+@media (max-width: $base-sm-break)
+  .section-top-banner
+    height: 10rem
+    .caption
+      font-size: .5rem
+      height: 10rem
+
+
+/* SECTION NEWS TOP
+ * -----------------------------------------------*/
+.sec-content
+  margin-top: 90px
+
+.section-top-news
+  position: relative
+  width: 100%
+  padding-bottom: 80px
+  z-index: 9
+  .ie9 &,
+  .ie10 &
+    margin-bottom: -60px
+    padding-bottom: 0
+
+.list-top-news
+  padding-left: 40px
+  +size(970px, 160px)
+  background-color: $color-white
+  -js-display: flex
+  +display-flex
+  +align-items(center)
+  position: absolute
+  top: -80px
+  left: 50%
+  +translateX(-50%)
+
+  .item-news
+    margin-right: 20px
+    width: 190px
+    +transition(all ease .4s)
+    position: relative
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 100%
+      height: 1px
+      background-color: #ccc
+      z-index: 1
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      bottom: 0
+      width: 0
+      height: 1px
+      background-color: $base-font-color
+      +transition(width .4s linear)
+      z-index: 2
+
+    &.active
+      .desc
+        color: $base-font-color
+      .icon
+        background-position: -20px 0
+      &:before
+        width: 100%
+      &.group-select:before
+        width: 190px
+
+    @media (min-width: $base-sm-break + 1)
+      &:hover,
+      &.active
+        .desc
+          color: $base-font-color
+          &.date-time
+            input
+              color: $base-font-color
+        .icon
+          background-position: -20px 0
+        &:before
+          width: 100%
+
+    .ie9 &,
+    .ie10 &
+      height: 38px
+      width: 190px !important
+
+  .desc
+    color: #999
+    +transition(all ease .3s)
+    @media (min-width: $base-sm-break + 1)
+      padding-bottom: 15px
+
+    &.date-time
+      padding-bottom: 0
+      width: 90%
+
+      input
+        color: #999
+        width: 100%
+        @media (min-width: $base-sm-break + 1)
+          padding-bottom: 15px
+
+  .icon
+    position: absolute
+    top: 4px
+    right: 0
+    +size(16px)
+    background: url(../img/dropdown.png) 0 0 no-repeat
+    .ie9 &,
+    .ie10 &
+      width: 16px !important
+      height: 16px !important
+      left: auto !important
+      right: 0 !important
+
+  .btn-more-news
+    margin-left: 10px
+
+.active .btn-select:before
+  width: 190px
+
+.list-select-item
+  position: absolute
+  top: 100%
+  left: 0
+  z-index: 9
+  width: 100%
+  overflow: auto
+  padding: 0
+  display: none
+  background-color: $color-white
+  border: 1px solid #ccc
+  border-top: 0
+
+  .item
+    padding: 10px
+
+.btn-select
+  margin: 0 auto
+  +size(100%, auto)
+  display: table !important
+  position: relative
+  &.active
+    &:before
+      width: 100%
+
+  @media (min-width: $base-sm-break + 1)
+    &:hover,
+    &.active
+      &:before
+        width: 190px
+
+  &.active
+    background-color: $color-white
+    .value-button
+      color: #000
+
+  .value-button
+    display: table-cell
+    vertical-align: middle
+    height: 23px
+    text-align: left
+
+
+@media (max-width: $base-sm-break)
+  .sec-content
+    margin-top: .5rem
+
+  .section-top-news
+    padding-top: 0
+    padding-bottom: 0
+
+  .list-top-news
+    padding: .3rem
+    position: static
+    +size(100%, auto)
+    +flex-wrap(wrap)
+    +translateX(0)
+
+    .item-news
+      width: 100%
+      padding: .2rem 0
+      margin-right: 0
+      &.group-select
+        padding-bottom: .2rem
+        &:after,
+        &:before
+          content: ''
+      &.active .icon
+        background: url(../img/sp/dropdown_active.png) 0 0 no-repeat
+        +background-size(contain)
+
+    .icon
+      top: 50%
+      margin-top: -0.26rem
+      +size(.47rem)
+      background: url(../img/sp/dropdown.png) 0 0 no-repeat
+      +background-size(contain)
+
+    .btn-more-news
+      margin: .25rem auto 0
+
+  .btn-select
+    padding-bottom: 0
+    &:after,
+    &:before
+      content: none
+
+  .list-top-news .item-news.active.group-select:before
+    width: 100%
+
+
+/* SECTION LIST IDEAS TOP
+ * -----------------------------------------------*/
+.list-ideas
+  margin-top: 28px
+  width: 100%
+  -js-display: flex
+  +display-flex
+  +align-items(center)
+  +flex-wrap(wrap)
+
+  .item
+    margin-right: 30px
+    +size(360px, 300px)
+    position: relative
+    &:nth-child(3n)
+      margin-right: 0
+    .thumb
+      +size(100%)
+      position: absolute
+      top: 0
+      left: 0
+      overflow: hidden
+      img
+        width: 100%
+        +transition(transform .5s ease)
+    @media (min-width: $base-sm-break + 1)
+      &:hover,
+      &:active,
+      &.active
+        .thumb img
+          transform: scale(1.2)
+
+.btn-see-ideas
+  +size(300px, 100px)
+  background-color: $color-white
+  position: absolute
+  left: 50%
+  bottom: 30px
+  +translateX(-50%)
+
+  .wrap-txt-idea
+    +size(270px, 70px)
+    border: 1px solid #ccc
+    display: table
+    position: absolute
+    top: 50%
+    left: 50%
+    +translate(-50%, -50%)
+
+  .txt-btn
+    width: 100%
+    text-align: center
+    display: table-cell
+    vertical-align: middle
+    height: 70px
+
+@media (max-width: $base-sm-break)
+  .list-ideas
+    margin-top: .3rem
+    .item
+      +size(100%, auto)
+      margin-right: 0
+      margin-bottom: .3rem
+      .thumb
+        +size(100%, auto)
+        position: static
+
+  .btn-see-ideas
+    +size(6rem, 1.7rem)
+    bottom: .5rem
+    .wrap-txt-idea
+      +size(5.5rem, 1.2rem)
+    .txt-btn
+      height: 1.2rem
+
+
+/* SECTION BOOKING TOP
+ * -----------------------------------------------*/
+.list-booking
+  width: 100%
+  -js-display: flex
+  +display-flex
+  +align-items(center)
+  +justify-content(space-between)
+  +flex-wrap(wrap)
+
+  .item
+    margin-top: 30px
+    width: 556px
+    -js-display: flex
+    +display-flex
+    background-color: $color-white
+
+  .list-thumb
+    width: 280px
+    line-height: 0
+    .thumb-small
+      width: 100%
+      img
+        width: 33.33%
+
+  .desc-booking
+    padding: 30px 10px 0 20px
+    .ie &
+      width: 278px
+    .desc
+      padding-top: 10px
+      height: 100px
+      overflow: hidden
+      text-overflow: ellipsis
+
+    .list-information
+      margin-top: 20px
+      .item-information
+        float: left
+        margin-right: 20px
+        &:last-child
+          margin-right: 0
+        span
+          display: inline-block
+        .number
+          padding-left: 10px
+
+    .txt-booking
+      position: relative
+      z-index: 2
+
+@media (max-width: $base-sm-break)
+  .list-booking
+    .item
+      width: 100%
+      +flex-wrap(wrap)
+    .list-thumb
+      width: 100%
+      .thumb-large
+        width: 100%
+        img
+          width: 100%
+    .desc-booking
+      padding: .4rem .2rem
+      .desc
+        padding-top: .15rem
+        height: auto
+        text-overflow: unset
+      .list-information
+        margin-top: .3rem
+
+
+/* SECTION WHY WE ARE DIFFERENT TOP
+ * -----------------------------------------------*/
+.list-ideas.list-different
+  .item
+    text-align: center
+    .icon-different
+      +size(100px)
+      margin: 0 auto
+      background: url(../img/bgd_icon.png) center center no-repeat
+      position: relative
+    .icon
+      position: absolute
+      top: 50%
+      left: 50%
+      +translate(-50%, -50%)
+    .title-different
+      color: #171d1c
+      padding-top: 20px
+    .desc
+      padding-top: 15px
+
+@media (max-width: $base-sm-break)
+  .list-ideas.list-different
+    .item
+      .icon-different
+        margin-top: .3rem
+        +size(1.8rem)
+        background-size: contain
+      .icon
+        width: 1rem
+      .title-different
+        padding-top: .35rem
+      .desc
+        padding-top: .2rem
+
+
+/* SECTION CONTACT TOP
+ * -----------------------------------------------*/
+.section-top-contact
+  +size(100%, 570px)
+  background: url(../img/bgd_contact.jpg) center center no-repeat
+  +background-size(cover)
+  margin-top: 45px
+  .wrapper
+    position: relative
+    height: 100%
+  .send-us-block
+    position: absolute
+    right: 87px
+    bottom: 0
+
+@media (max-width: $base-sm-break)
+  .section-top-contact
+    height: 10rem
+    .send-us-block
+      right: .2rem
+      .title-contact
+        font-size: .5rem

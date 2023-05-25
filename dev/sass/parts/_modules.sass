@@ -1,0 +1,238 @@
+@charset "utf-8"
+
+.clearfix
+  +pie-clearfix
+
+/* COMMON TITLES
+ * -----------------------------------------------*/
+.font-abril
+  font-family: 'Abril Fatface', cursive
+  font-size: 24px
+  color: #171d1c
+  line-height: 1
+
+.sec-title01
+  padding-bottom: 36px
+  width: 100%
+  text-align: center
+  position: relative
+  font-size: 48px
+  @extend .font-abril
+
+  &:after
+    content: ''
+    background: url(../img/title_separator.png) center no-repeat
+    position: absolute
+    bottom: 0
+    left: 50%
+    +translateX(-50%)
+    +size(78px, 10px)
+
+.sec-title02
+  width: 100%
+  text-align: center
+  position: relative
+  font-size: 24px
+  color: $base-font-color
+  @extend .font-abril
+
+.sec-title03
+  font-size: 30px
+  @extend .font-abril
+  white-space: nowrap
+
+@media (max-width: $base-sm-break)
+  .sec-title01
+    font-size: .8rem
+    line-height: 1.2
+    padding-bottom: .25rem
+  .sec-title02
+    font-size: .5rem
+  .sec-title03
+    font-size: .6rem
+
+
+/* COMMON BUTTONS
+ * -----------------------------------------------*/
+.btn-commom:link,
+.btn-commom,
+.btn-commom:visited
+  position: relative
+  display: block
+  border: 2px solid $primary-color01
+  background: $primary-color01
+  color: $color-white
+  text-align: center
+  text-decoration: none
+  overflow: hidden
+  +transition(all 1s ease)
+  &:after
+    content: ""
+    position: absolute
+    background: none repeat scroll 0 0 $color-white
+    height: 0
+    left: 50%
+    top: 50%
+    width: 100%
+    z-index: 1
+    +transition(all 0.75s ease 0s)
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg)
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg)
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg)
+    transform: translateX(-50%) translateY(-50%) rotate(-25deg)
+
+  @media (min-width: $base-sm-break + 1)
+    &:hover
+      color: $primary-color01
+      &:after
+        height: 450%
+
+.btn-booking
+  width: 120px
+  margin-top: 30px
+  padding: 10px 0
+  @extend .text-uppercase
+  font-size: 14px
+  letter-spacing: .075em
+  +border-radius(25px)
+
+.btn-more-news
+  +size(40px)
+  +border-radius(100%)
+
+  &:before
+    content: ''
+    +size(20px, 12px)
+    position: absolute
+    top: 50%
+    left: 50%
+    background: url(../img/more.png) -20px 0 no-repeat
+    +translate(-50%, -50%)
+    z-index: 2
+    +transition(background-position 0.75s ease)
+
+  @media (min-width: $base-sm-break + 1)
+    &:hover,
+    &:active,
+    &.active
+      &:before
+        background-position: 0 0
+
+.btn-send-mail
+  width: 96px
+  margin-top: 90px
+  padding: 9px 0
+  @extend .text-uppercase
+  font-size: 14px
+  letter-spacing: .075em
+  +border-radius(25px)
+
+  .txt-btn
+    position: relative
+    z-index: 2
+
+.btn-booking
+  background: $primary-color01
+  border: none
+  cursor: pointer
+  line-height: 1
+  padding: 10px 0
+  letter-spacing: 0.075em
+  width: 120px
+  display: block
+  text-align: center
+  +border-radius(25px)
+  &:focus
+    outline: 2px dotted #55d7dc
+
+@media (max-width: $base-sm-break)
+  .btn-more-news
+    +size(35px)
+
+  .btn-booking
+    width: 2.5rem
+    +border-radius(.5rem)
+    font-size: .26rem
+    margin-top: .3rem
+    padding: .27rem 0
+
+  .btn-send-mail
+    width: 2rem
+    margin-top: .4rem
+    +border-radius(.4rem)
+    font-size: .26rem
+    padding: .2rem 0
+
+
+/* COMMON FORMS
+ * -----------------------------------------------*/
+.send-us-block
+  background-color: $color-white
+  padding: 40px 40px 40px 45px
+  width: 390px
+
+  .group-input-filed
+    margin-top: 10px
+
+    .input-control
+      margin-top: 20px
+      padding: 0 5px
+      +size(100%, 30px)
+      border-bottom: 1px solid #ccc
+
+\::placeholder
+  color: #999
+  opacity: 1
+
+\:-ms-input-placeholder, ::-ms-input-placeholder
+  color: #999
+
+@media (max-width: $base-sm-break)
+  .send-us-block
+    width: 70%
+    padding: .3rem .5rem
+
+    .group-input-filed
+      margin-top: .2rem
+
+      .input-control
+        margin-top: .2rem
+        padding: 0 .1rem
+        height: .6rem
+
+
+/* COMMON TOOLTIP
+ * -----------------------------------------------*/
+.tooltip
+  position: relative
+  display: inline-block
+  &:before
+    content: ""
+    position: absolute
+    top: 35%
+    left: 100%
+    +translateY(-50%)
+    display: none
+    border-top: 4px solid transparent
+    border-bottom: 4px solid transparent
+    border-right: 5px dashed $base-font-color
+    margin-left: 4px
+  &:after
+    content: attr(data-title)
+    margin-left: 9px
+    padding: 5px
+    background: $base-font-color
+    font-size: 14px
+    line-height: 1
+    color: $color-white
+    display: none
+    width: auto
+    white-space: nowrap
+    position: absolute
+    left: 100%
+    top: 35%
+    z-index: 999
+    +translateY(-50%)
+  &:hover:before,
+  &:hover:after
+    display: block

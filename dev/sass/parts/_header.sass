@@ -1,0 +1,332 @@
+@charset "utf-8"
+
+/* COMMON HEADER
+ * -----------------------------------------------*/
+@-webkit-keyframes menu1In
+  0%
+    -webkit-transform: translateY(0px) rotate(0deg)
+    transform: translateY(0px) rotate(0deg)
+
+  50%
+    -webkit-transform: translateY(.2rem) rotate(0deg)
+    transform: translateY(.2rem) rotate(0deg)
+
+  100%
+    -webkit-transform: translateY(.2rem) rotate(-45deg)
+    transform: translateY(.2rem) rotate(-45deg)
+
+
+@keyframes menu1In
+  0%
+    -webkit-transform: translateY(0px) rotate(0deg)
+    transform: translateY(0px) rotate(0deg)
+
+  50%
+    -webkit-transform: translateY(.2rem) rotate(0deg)
+    transform: translateY(.2rem) rotate(0deg)
+
+  100%
+    -webkit-transform: translateY(.2rem) rotate(-45deg)
+    transform: translateY(.2rem) rotate(-45deg)
+
+
+@-webkit-keyframes menu1Out
+  0%
+    -webkit-transform: translateY(.2rem) rotate(-45deg)
+    transform: translateY(.2rem) rotate(-45deg)
+
+  50%
+    -webkit-transform: translateY(.2rem) rotate(0deg)
+    transform: translateY(.2rem) rotate(0deg)
+
+  100%
+    -webkit-transform: translateY(0px) rotate(0deg)
+    transform: translateY(0px) rotate(0deg)
+
+
+@keyframes menu1Out
+  0%
+    -webkit-transform: translateY(.2rem) rotate(-45deg)
+    transform: translateY(.2rem) rotate(-45deg)
+
+  50%
+    -webkit-transform: translateY(.2rem) rotate(0deg)
+    transform: translateY(.2rem) rotate(0deg)
+
+  100%
+    -webkit-transform: translateY(0px) rotate(0deg)
+    transform: translateY(0px) rotate(0deg)
+
+
+@-webkit-keyframes menu3In
+  0%
+    -webkit-transform: translateY(0px) rotate(0deg)
+    transform: translateY(0px) rotate(0deg)
+
+  50%
+    -webkit-transform: translateY(-0.2rem) rotate(0deg)
+    transform: translateY(-0.2rem) rotate(0deg)
+
+  100%
+    -webkit-transform: translateY(-0.2rem) rotate(45deg)
+    transform: translateY(-0.2rem) rotate(45deg)
+
+
+@keyframes menu3In
+  0%
+    -webkit-transform: translateY(0px) rotate(0deg)
+    transform: translateY(0px) rotate(0deg)
+
+  50%
+    -webkit-transform: translateY(-0.2rem) rotate(0deg)
+    transform: translateY(-0.2rem) rotate(0deg)
+
+  100%
+    -webkit-transform: translateY(-0.2rem) rotate(45deg)
+    transform: translateY(-0.2rem) rotate(45deg)
+
+
+@-webkit-keyframes menu3Out
+  0%
+    -webkit-transform: translateY(-0.2rem) rotate(45deg)
+    transform: translateY(-0.2rem) rotate(45deg)
+
+  50%
+    -webkit-transform: translateY(-0.2rem) rotate(0deg)
+    transform: translateY(-0.2rem) rotate(0deg)
+
+  100%
+    -webkit-transform: translateY(0px) rotate(0deg)
+    transform: translateY(0px) rotate(0deg)
+
+
+@keyframes menu3Out
+  0%
+    -webkit-transform: translateY(-0.2rem) rotate(45deg)
+    transform: translateY(-0.2rem) rotate(45deg)
+
+  50%
+    -webkit-transform: translateY(-0.2rem) rotate(0deg)
+    transform: translateY(-0.2rem) rotate(0deg)
+
+  100%
+    -webkit-transform: translateY(0px) rotate(0deg)
+    transform: translateY(0px) rotate(0deg)
+
+
+.header
+  width: 100%
+  background-color: $color-white
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 99
+  .wrapper
+    padding: 15px 20px
+    background-color: $color-white
+
+  .btn-nav .txt-nav
+    font-weight: 600
+
+.header-logo
+  padding: 0 40px
+  a
+    display: block
+    line-height: 0
+
+.list-menu
+  position: relative
+  width: 100%
+  -js-display: flex
+  +flex-wrap(nowrap)
+  +display-flex
+  +align-items(center)
+  +justify-content(space-between)
+
+.list-menu
+  .item-menu
+    float: left
+    width: auto
+
+.btn-nav
+  display: inline-block
+  position: relative
+  .txt-nav
+    padding: 0 60px
+    line-height: 1
+    letter-spacing: .025em
+    display: inline-block
+    position: relative
+    +transition(color .3s ease)
+    @extend .text-uppercase
+  &:after
+    content: ''
+    +size(9px)
+    background: url(../img/icon_diamond.png) no-repeat center
+    position: absolute
+    top: 50%
+    right: 0
+    +translateY(-50%)
+
+.menu-left .item-menu:first-child
+  .btn-nav
+    .txt-nav
+      padding-left: 0
+
+.menu-right
+  .mac &,
+  .ie9 &,
+  .ie10 &
+    width: 368px
+  .item-menu:first-child
+    .mac &
+      width: 65%
+    .btn-nav
+      &:before
+        content: ''
+        +size(9px)
+        background: url(../img/icon_diamond.png) no-repeat center
+        position: absolute
+        top: 50%
+        left: 0
+        +translateY(-50%)
+
+  .item-menu:last-child
+    .mac &
+      width: 30%
+    .btn-nav
+      &:after
+        content: none
+      .txt-nav
+        padding-right: 0
+
+@media (min-width: $base-sm-break + 1)
+  .nav
+    display: block !important
+
+@media (max-width: $base-sm-break)
+  .header
+    .wrapper
+      padding: 0.3rem .2rem
+
+  .header-logo
+    margin: 0
+    padding: 0
+    a
+      text-align: center
+    img
+      +size(50%, auto)
+      margin: 0 auto
+
+  .hambuger-menu
+    +size(.6rem, .45rem)
+    position: absolute
+    top: 50%
+    right: .2rem
+    +translateY(-50%)
+
+    .line-item
+      background: $primary-color01
+      +border-radius(.04rem)
+      height: .06rem
+      width: .6rem
+      position: absolute
+      -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
+      -webkit-animation-duration: .45s
+      animation-duration: .45s
+      -webkit-animation-direction: alternate
+      animation-direction: alternate
+      -webkit-animation-fill-mode: forwards
+      animation-fill-mode: forwards
+
+      &.line-item01
+        top: 0
+        -webkit-transform: translateY(0)
+        -ms-transform: translateY(0)
+        transform: translateY(0)
+
+      &.line-item02
+        top: .2rem
+        -webkit-transition-duration: .15s
+        transition-duration: .15s
+
+      &.line-item03
+        top: auto
+        bottom: 0
+        -webkit-transform: translateY(0)
+        -ms-transform: translateY(0)
+        transform: translateY(0)
+
+    &.is-down
+      .line-item
+        &.line-item01
+          -webkit-animation-name: menu1In
+          animation-name: menu1In
+        &.line-item02
+          opacity: 0
+          -webkit-transition-duration: .25s
+          transition-duration: .25s
+          -webkit-transition-delay: .1s
+          transition-delay: .1s
+        &.line-item03
+          -webkit-animation-name: menu3In
+          animation-name: menu3In
+    &.is-out
+      .line-item
+        &.line-item01
+          -webkit-animation-name: menu1Out
+          animation-name: menu1Out
+        &.line-item02
+          opacity: 1
+          -webkit-transition-duration: .25s
+          transition-duration: .25s
+          -webkit-transition-delay: .1s
+          transition-delay: .1s
+        &.line-item03
+          -webkit-animation-name: menu3Out
+          animation-name: menu3Out
+
+  .nav
+    display: none
+    position: absolute
+    top: 100%
+    bottom: 0
+    left: 0
+    width: 100%
+    z-index: 999
+    height: 95vh
+    overflow: scroll
+
+    .nav-inner
+      position: relative
+      z-index: 99
+      overflow: scroll
+      height: calc(100% - 1.04rem)
+
+  .list-menu
+    background-color: $color-white
+    display: block
+    padding: .5rem 0
+    .item-menu
+      display: block
+      float: none
+      width: 100%
+
+  .btn-nav
+    padding: 0 .2rem
+    display: block
+    width: 100%
+    text-align: center
+    &:after
+      content: none
+    .txt-nav
+      padding: .16rem 0
+      display: block
+      width: 100%
+
+      .txt-nav
+        padding: .2rem 0
+
+  .menu-right .item-menu:first-child .btn-nav:before
+    content: none

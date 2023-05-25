@@ -1,0 +1,82 @@
+mixin img(alt, src)
+  //- - if (typeof(src) === 'undefined') href = 'images/transparent.png'
+  //- img(src=path+src, alt=alt)&attributes(attributes)
+  img(alt=alt, src=src)&attributes(attributes)
+
+
+mixin link(href, text)
+  - if (typeof(href) === 'undefined') href = '#'
+  //- a(href=path+href, title=title)&attributes(attributes)
+  a(href=href)&attributes(attributes)
+    if block
+      block
+    else
+      !=text
+
+
+mixin list(id, items)
+  ul&attributes(attributes)
+    each item in items
+      li= item
+
+
+mixin input(placeholder, type)
+  - if (typeof(type) === 'undefined') type = 'text'
+  - if (typeof(placeholder) === 'undefined') placeholder = null
+  input(type=type, placeholder=placeholder, required)&attributes(attributes)
+
+mixin input-norequire(placeholder, type)
+  - if (typeof(type) === 'undefined') type = 'text'
+  - if (typeof(placeholder) === 'undefined') placeholder = null
+  input(type=type, placeholder=placeholder)&attributes(attributes)
+
+mixin textarea(placeholder, text)
+  - if (typeof(placeholder) === 'undefined') placeholder = ''
+  textarea(placeholder=placeholder)&attributes(attributes)!=text
+
+mixin checkbox(id, text)
+  input(type='checkbox', id=id)
+  label(for=id)&attributes(attributes)
+    if block
+        block
+    else
+      !=text
+
+mixin upload-file(id, text)
+  input(type='file', id=id, name=id)&attributes(attributes)
+  label(for=id).show-path-text
+    i.icon.icon-upload-1
+    span.text!=text
+  button(type='button', title='Button close').btn.btn-close
+    i.icon.icon-cross
+
+mixin radio(id, text, name)
+  input(type='radio', id=id, name=name)&attributes(attributes)
+  label(for=id)
+    if block
+        block
+    else
+      !=text
+
+mixin button(text, type)
+  - if (typeof(type) === 'undefined') type = 'submit'
+  button(type=type)&attributes(attributes)
+    if block
+      block
+    else
+      !=text
+
+mixin form(method, action)
+  - if (typeof(method) === 'undefined') method = null
+  - if (typeof(action) === 'undefined') action = '#'
+  form(action=action, method=method)&attributes(attributes)
+    block
+
+
+mixin select(selectlabel,selectname,options)
+  label!= selectlabel
+  select(name=selectname)&attributes(attributes)
+    each obj in options
+      option(value="#{obj}") #{obj}
+
+
