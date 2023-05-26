@@ -6,7 +6,6 @@ app.init = function () {
   app.hacksForIE();
   app.fixHeader();
   app.navMobile();
-  app.animation();
   app.select();
   app.date();
 
@@ -46,17 +45,6 @@ app.navMobile = function () {
     }
     return false;
   });
-};
-
-app.animation = function () {
-  // var wow = new WOW({
-  //   boxClass: 'wow',
-  //   animateClass: 'animated',
-  //   offset: 0,
-  //   mobile: false,
-  //   live: true
-  // });
-  // wow.init();
 };
 
 app.select = function () {

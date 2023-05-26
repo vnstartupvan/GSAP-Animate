@@ -45,6 +45,12 @@ const AnimateOptions = {
             grid: "auto",
             from: "center"
         }
+    },
+    fadeInDown: {
+        y: -80,
+        opacity: 0,
+        duration: 1.5,
+        ease: EaseOptions.bounceOut
     }
 };
 
@@ -65,6 +71,7 @@ animate.initDesktop = () => {
     animate.run('.list-ideas:not(.list-different) .item', AnimateOptions.topEntranceList);
     animate.run('.btn-see-ideas', AnimateOptions.topLeftEntrance);
     animate.run('.list-booking .item', AnimateOptions.zoomIn);
+    animate.run('.caption.item-news', AnimateOptions.fadeInDown);
     animate.run('.send-us-block', AnimateOptions.topRightEntrance)
 }
 
