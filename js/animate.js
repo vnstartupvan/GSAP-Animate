@@ -29,12 +29,6 @@ const AnimateOptions = {
         opacity: .5,
         duration: 1.5,
     },
-    fadeInDown: {
-        stagger: .3,
-        opacity: .3,
-        x: -200,
-        duration: 1,
-    },
     zoomIn: {
         scale: 0.5,
         opacity: .8,
